@@ -4,6 +4,7 @@ const { body, validationResult } = require('express-validator/check');
 
 const router = express.Router();
 const Registration = mongoose.model('Registration');
+const MovieList = mongoose.model('movies');
 
 router.get('/', (req, res) => {
     res.render('form', { title: 'Registration form' });
@@ -13,6 +14,14 @@ router.get('/registrations', (req, res) => {
     Registration.find()
       .then((registrations) => {
         res.render('index', { title: 'Listing registrations', registrations });
+      })
+      .catch(() => { res.send('Sorry! Something went wrong.'); });
+  });
+
+  router.get('/movies', (req, res) => {
+    MovieList.find()
+      .then((movies) => {
+        res.render('moviesList', { title: 'Listing Movies', movies });
       })
       .catch(() => { res.send('Sorry! Something went wrong.'); });
   });
