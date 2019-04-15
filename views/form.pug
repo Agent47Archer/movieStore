@@ -1,6 +1,10 @@
 extends layout
 
 block content
+  if errors
+    ul
+      for error in errors
+        li= error.msg
   form(action="." method="POST")
     label(for="name") Name:
     input(
