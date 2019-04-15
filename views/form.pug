@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  -data = data || {}
   if errors
     ul
       for error in errors
@@ -11,6 +12,7 @@ block content
       type="text"
       id="name"
       name="name"
+      value=data.name
     )
 
     label(for="email") Email:
@@ -18,6 +20,7 @@ block content
       type="email"
       id="email"
       name="email"
+      value=data.email
     )
 
     input(type="submit" value="Submit")
