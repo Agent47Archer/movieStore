@@ -25,7 +25,14 @@ router.get('/registrations', (req, res) => {
       })
       .catch(() => { res.send('Sorry! Something went wrong.'); });
   });
-
+/*
+  router.get('/movieDetails',(req,res) => {
+    console.log('Inside The movie Details');
+    MovieList.find().then((movie) => {
+        res.render('movieList', (res.body))
+    })
+  });
+*/
 router.post('/', [
     body('name')
         .isLength({ min: 1 })
