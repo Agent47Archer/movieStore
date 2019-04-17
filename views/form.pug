@@ -31,7 +31,18 @@ block content
       type="file",
       name="Upload Photo",
       id="file_upld",
-      class="form-control"
+      class="form-control",
+      accept="image/x-png,image/jpeg",
+      capture
+      )
+    lable(for="vid_upld") Video Upload:
+    input(
+      type="file",
+      name="Video Photo",
+      id="vid_upld",
+      class="form-control",
+      accept="video/*",
+      capture=true
       )
     input(
       type="submit"
