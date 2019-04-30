@@ -5,6 +5,10 @@ const { body, validationResult } = require('express-validator/check');
 const router = express.Router();
 const Registration = mongoose.model('Registration');
 const MovieList = mongoose.model('movies');
+const movieCounts = mongoose.model('movieD');
+
+var a1 = new movieCounts ({title:'Avengers Endgame', year: 2019});
+a1.HelloWorld();
 
 router.get('/', (req, res) => {
     res.render('form', { title: 'Registration form' });
@@ -25,6 +29,7 @@ router.get('/registrations', (req, res) => {
       })
       .catch(() => { res.send('Sorry! Something went wrong.'); });
   });
+
 /*
   router.get('/movieDetails',(req,res) => {
     console.log('Inside The movie Details');
