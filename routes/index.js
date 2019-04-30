@@ -23,7 +23,7 @@ router.get('/registrations', (req, res) => {
   });
 
   router.get('/movies', (req, res) => {
-    MovieList.find()
+    MovieList.find({"year":{$eq:2010}},null,{sort:{rating:-1}})
       .then((movies) => {
         res.render('moviesList', { title: 'Listing Movies', movies });
       })

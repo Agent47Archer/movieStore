@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-const movieListSchema = new mongoose.Schema({
+var Schema = mongoose.Schema;
+const movieListSchema = new Schema({
     title: {
         type: String,
         trim: true,
@@ -14,7 +14,7 @@ const movieListSchema = new mongoose.Schema({
     }
 });
 
-const movieDetails = new mongoose.Schema({
+const movieDetails = new Schema({
     title: String,
     year: Number,
     writer: [{
@@ -22,6 +22,9 @@ const movieDetails = new mongoose.Schema({
         trim: true
     }]
 });
+function callBackInAct (){
+    console.log('Callback was called');
+}
 
 movieDetails.methods.HelloWorld = function () {
     var descr = this.title ? "This movie " + this.title + " From year " + this.year : 'This movie Does not exists';
@@ -34,7 +37,6 @@ movieDetails.find(function (err,title){
     console.log(title);
 }); 
 */
-
 
 
 module.exports = mongoose.model('movieD', movieDetails);
