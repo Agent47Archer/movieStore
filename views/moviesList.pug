@@ -1,11 +1,13 @@
 extends layout
 
 block content
-
+  form(action="." method="GET" class="form-registration")
+  input(type="text", name="Search Bar" placeholder="Search Text" class="form-control") 
+  input(type="submit", value="Search" class="btn btn-lg btn-primary btn-block")
   if movies.length
     table.listing-table.table-dark.table-striped
       tr
-        th Name a(href="/movieDetails")
+        th Name
         th Year
         th Rating
       each movie in movies
